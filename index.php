@@ -23,6 +23,7 @@ if($city_id) {
 	# code...
 } else { // National
 	$page_title .= " : National";
+	$next_level_key = 'city_id';
 
 	$all_cities = $model->getAllCities();
 	$data = array();
@@ -39,7 +40,9 @@ if($city_id) {
 		$total_response_count = array_sum(array_values($responses_count));
 		$possible_response_count = $total_student_count * $question_count;
 
-		$completion_percentage = round($total_response_count / $possible_response_count * 100, 2);
+		$completion_percentage = 0;
+		if($total_response_count and $possible_response_count)
+			$completion_percentage = round($total_response_count / $possible_response_count * 100, 2);
 
 		$data[$city_id] = array(
 			'id'	=> $city_id,

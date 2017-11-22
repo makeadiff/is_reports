@@ -4,7 +4,7 @@
 	<tr><th>Name</th><th>Teacher Count</th><th colspan="2" width="200">Completion</th></tr>
 	<?php foreach ($data as $row) { ?>
 	<tr>
-		<td><a href="index.php?city_id=<?php echo $row['city_id'] ?>"><?php echo $row['name'] ?></a></td>
+		<td><a href="index.php?<?php echo $next_level_key ?>=<?php echo $row['id'] ?>"><?php echo $row['name'] ?></a></td>
 		<td><?php echo $row['teacher_count'] ?></td>
 		<td width="30"><?php echo $row['completion_percentage'] ?>%</td>
 		<td class="progress">
